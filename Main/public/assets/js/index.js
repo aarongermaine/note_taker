@@ -1,6 +1,4 @@
-const server = require("/Main/public/assets/js/server.js");
-
-server(express());
+const server = require("../js/server");
 
 let noteTitle;
 let noteText;
