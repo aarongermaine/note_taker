@@ -1,5 +1,3 @@
-const server = require("../js/server");
-
 let noteTitle;
 let noteText;
 let saveNoteBtn;
@@ -35,7 +33,7 @@ const getNotes = () =>
     },
   });
 
-const saveNote = (note) =>
+const saveNote = () =>
   fetch("/api/notes", {
     method: "POST",
     headers: {
@@ -53,8 +51,6 @@ const deleteNote = (id) =>
   });
 
 const renderActiveNote = () => {
-  hide(saveNoteBtn);
-
   if (activeNote.id) {
     noteTitle.setAttribute("readonly", true);
     noteText.setAttribute("readonly", true);
@@ -157,20 +153,20 @@ const renderNoteList = async (notes) => {
     noteListItems.push(createLi("No saved Notes", false));
   }
 
-  jsonNotes.forEach((note) => {
-    const li = createLi(note.title);
-    li.dataset.note = JSON.stringify(note);
+  jsonNotes.forEach((notes) => {
+    const li = createLi(notes.title);
+    li.dataset.notes = JSON.stringify(notes);
 
     noteListItems.push(li);
   });
 
   if (window.location.pathname === "/notes") {
-    noteListItems.forEach((note) => noteList[0].append(note));
+    noteListItems.forEach((notes) => noteList[0].append(notes));
   }
 };
 
 // Gets notes from the db and renders them to the sidebar
-const getAndRenderNotes = () => getNotes().then(renderNoteList);
+const getAndRenderNotes = () => getNotes(notes).then(renderNoteList);
 
 if (window.location.pathname === "/notes") {
   saveNoteBtn.addEventListener("click", handleNoteSave);
