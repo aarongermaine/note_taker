@@ -1,4 +1,4 @@
-const noteData = require("../js/index");
+const noteData = require("../public/assets/js/index");
 
 const express = require("express");
 
