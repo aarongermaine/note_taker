@@ -2,9 +2,9 @@ var noteData = require("../db/db.json");
 var express = require("express");
 var app = express();
 var fs = require("fs");
-var path = require("path");
+let path = require("path");
 
-require("./htmlRoutes")(app);
+require("./htmlRoute")(app);
 
 module.exports = (app) => {
   app.get("/api/notes", function (req, res) {
