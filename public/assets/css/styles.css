@@ -15,7 +15,7 @@ html, body {
   cursor: pointer;
 }
 
-.note-textarea, .note-title {
+.note-textarea, .note-header {
   color: #000000;
   width: 100%;
   outline: none;
@@ -28,13 +28,13 @@ html, body {
   padding-top: 15px;
 }
 
-.note-title {
+.note-header {
   height: 50px;
   margin-top: 13px;
   font-size: 3rem;
 }
 
-.note-title:read-only, .note-textarea:read-only {
+.note-header:read-only, .note-textarea:read-only {
   color: #757575;
 }
 
