@@ -2,6 +2,8 @@
 
     An app that let's you take notes and save them for later!
 
+![App Screenshot](public\assets\images\siteScreenshot.png)
+
 # Table Of Contents
 
 - [Installation](##=installation)
