@@ -1,14 +1,16 @@
-const path = require("path");
-
-const express = require("express");
-
-const app = express();
+let path = require("path");
 
 module.exports = (app) => {
   app.get("/", function (req, res) {
-    res.sendfile(path.join(__dirname, "../public/index.html"));
+    console.log("Received a ".concat(req.method, " from URL ").concat(req.url));
+    res.sendFile(path.join(__dirname, "../public/index.html"));
   });
   app.get("/notes", function (req, res) {
-    res.sendfile(path.join(__dirname, "../public/notes.html"));
+    console.log("Received a ".concat(req.method, " from URL ").concat(req.url));
+    res.sendFile(path.join(__dirname, "../public/notes.html"));
+  });
+  app.get("*", function (req, res) {
+    console.log("Received a ".concat(req.method, " from URL ").concat(req.url));
+    res.sendFile(path.join(__dirname, "../public/index.html"));
   });
 };
